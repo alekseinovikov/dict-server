@@ -6,3 +6,4 @@ edition = "2021"
 [dependencies]
 actix-web = "4"
 dictionary = { path = "../dictionary" }
+mime = "0.3.17"

@@ -23,8 +23,8 @@ async fn get_element(data: web::Data<AppState>, key: web::Path<String>) -> impl 
 
 #[get("/get_all")]
 async fn get_all_elements(data: web::Data<AppState>) -> impl Responder {
-    let all_elements = data.dict.get_all().await;
-    HttpResponse::Ok().json(all_elements)
+    let all_elements = data.dict.get_all_as_json().await;
+    HttpResponse::Ok().content_type(mime::APPLICATION_JSON).body(all_elements)
 }
 
 #[actix_web::main]

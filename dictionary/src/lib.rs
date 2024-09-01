@@ -21,9 +21,9 @@ impl Dictionary {
         map.get(key).cloned()
     }
 
-    pub async fn get_all(&self) -> HashMap<String, String> {
+    pub async fn get_all_as_json(&self) -> String {
         let map = self.map.read().await;
-        map.clone()
+        serde_json::to_string(&*map).unwrap()
     }
 }
 
